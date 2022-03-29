@@ -26,8 +26,10 @@ Mongo Express will now be accessible from `http://<project>.ddev.site:9091`
 * You can't define custom MongoDB configuration with this current setup.
 * You can't use `ddev import-db` to import to mongo.
 
-**Contributed and maintained by [@rfay](https://github.com/rfay), but looking for co-maintainers who use mongo daily**
+**Contributed and maintained by [@rfay](https://github.com/rfay), but looking for co-maintainers who use mongo regularly and know something about it.**
+
 **Based on the original [ddev-contrib recipe](https://github.com/drud/ddev-contrib/tree/master/docker-compose-services/mongodb)**
+
 **Originally ontributed by [@wtfred](https://github.com/wtfred)**
 
 
