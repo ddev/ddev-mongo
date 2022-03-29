@@ -25,8 +25,8 @@ teardown() {
   echo "# ddev get ${DIR} with project ${PROJNAME} in ${TESTDIR} ($(pwd))" >&3
   ddev get ${DIR}
   ddev restart
-  curl -sI ${PROJNAME}.ddev.site:8081/db/admin/expArr/system.users | grep "HTTP/1.1 200 OK"
-  out=$(curl -s ${PROJNAME}.ddev.site:8081/db/admin/expArr/system.users | jq -r ".[0].user")
+  curl -sI ${PROJNAME}.ddev.site:9091/db/admin/expArr/system.users | grep "HTTP/1.1 200 OK"
+  out=$(curl -s ${PROJNAME}.ddev.site:9091/db/admin/expArr/system.users | jq -r ".[0].user")
   [ "${out}" = "db" ]
   (ddev exec php -i | grep mongodb.debug) || (echo "# php mongodb extension not found" >&3 || exit 1)
 }
@@ -37,8 +37,8 @@ teardown() {
   echo "# ddev get drud/ddev-mongo with project ${PROJNAME} in ${TESTDIR} ($(pwd))" >&3
   ddev get drud/ddev-mongo
   ddev restart
-  curl -sI ${PROJNAME}.ddev.site:8081/db/admin/expArr/system.users | grep "HTTP/1.1 200 OK"
-  out=$(curl -s ${PROJNAME}.ddev.site:8081/db/admin/expArr/system.users | jq -r ".[0].user")
+  curl -sI ${PROJNAME}.ddev.site:9091/db/admin/expArr/system.users | grep "HTTP/1.1 200 OK"
+  out=$(curl -s ${PROJNAME}.ddev.site:9091/db/admin/expArr/system.users | jq -r ".[0].user")
   [ "${out}" = "db" ]
   (ddev exec php -i | grep mongodb.debug) || (echo "# php mongodb extension not found" >&3 || exit 1)
 }

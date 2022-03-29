@@ -18,7 +18,7 @@ It's based on [MongoDb from Docker Hub](https://hub.docker.com/_/mongo?tab=descr
     MONGODB_DB=api
     ```
 
-Mongo Express will now be accessible from `http://<project>.ddev.site:8081`
+Mongo Express will now be accessible from `http://<project>.ddev.site:9091`
 
 ## Caveats:
 
