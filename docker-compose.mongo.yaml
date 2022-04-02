@@ -22,6 +22,7 @@ services:
     - MONGO_INITDB_DATABASE=db
     healthcheck:
       test: ["CMD-SHELL", "mongo --eval 'db.runCommand(\"ping\").ok' localhost:27017/test --quiet"]
+      timeout: 60s
 
   mongo-express:
     container_name: ddev-${DDEV_SITENAME}-mongo-express
