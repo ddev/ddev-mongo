@@ -5,11 +5,11 @@ setup() {
   mkdir -p $TESTDIR
   export PROJNAME=testmongo
   export DDEV_NON_INTERACTIVE=true
-  ddev delete -Oy ${PROJNAME} || true
+  ddev delete -Oy ${PROJNAME} >/dev/null 2>&1 || true
   cd "${TESTDIR}"
   ddev config --project-name=${PROJNAME}
   printf "<?php\nphpinfo();\n" >index.php
-  ddev start
+  ddev start -y
 }
 
 teardown() {
