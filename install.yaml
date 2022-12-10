@@ -1,7 +1,9 @@
 name: mongo
 
 pre_install_actions:
-- 'printf "#ddev-generated\nwebimage_extra_packages: [php${DDEV_PHP_VERSION}-mongodb]" >.ddev/config.mongo.yaml'
+- |
+  #ddev-description:Create config.mongo.yaml with webimage_extra_packages in it
+  printf "#ddev-generated\nwebimage_extra_packages: [php${DDEV_PHP_VERSION}-mongodb]" >.ddev/config.mongo.yaml
 
 # list of files and directories listed that are copied into project .ddev directory
 project_files:
