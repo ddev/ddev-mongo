@@ -7,15 +7,15 @@ setup() {
   export DDEV_NON_INTERACTIVE=true
   ddev delete -Oy ${PROJNAME} >/dev/null 2>&1 || true
   cd "${TESTDIR}"
-  ddev config --project-name=${PROJNAME}
+  ddev config --project-name=${PROJNAME} >/dev/null
   printf "<?php\nphpinfo();\n" >index.php
-  ddev start -y
+  ddev start -y >/dev/null
 }
 
 teardown() {
   set -eu -o pipefail
   cd ${TESTDIR} || ( printf "unable to cd to ${TESTDIR}\n" && exit 1 )
-  ddev delete -Oy ${PROJNAME}
+  ddev delete -Oy ${PROJNAME} >/dev/null 2>&1
   [ "${TESTDIR}" != "" ] && rm -rf ${TESTDIR}
 }
 
@@ -23,8 +23,8 @@ teardown() {
   set -eu -o pipefail
   cd ${TESTDIR}
   echo "# ddev get ${DIR} with project ${PROJNAME} in ${TESTDIR} ($(pwd))" >&3
-  ddev get ${DIR}
-  ddev restart
+  ddev get ${DIR} >/dev/null
+  ddev restart >/dev/null 2>&1
   curl -sI ${PROJNAME}.ddev.site:9091/db/admin/expArr/system.users | grep "HTTP/1.1 200 OK"
   out=$(curl -s ${PROJNAME}.ddev.site:9091/db/admin/expArr/system.users | jq -r ".[0].user")
   [ "${out}" = "db" ]
@@ -35,8 +35,8 @@ teardown() {
   set -eu -o pipefail
   cd ${TESTDIR} || ( printf "unable to cd to ${TESTDIR}\n" && exit 1 )
   echo "# ddev get drud/ddev-mongo with project ${PROJNAME} in ${TESTDIR} ($(pwd))" >&3
-  ddev get drud/ddev-mongo
-  ddev restart
+  ddev get drud/ddev-mongo >/dev/null
+  ddev restart >/dev/null
   curl -sI ${PROJNAME}.ddev.site:9091/db/admin/expArr/system.users | grep "HTTP/1.1 200 OK"
   out=$(curl -s ${PROJNAME}.ddev.site:9091/db/admin/expArr/system.users | jq -r ".[0].user")
   [ "${out}" = "db" ]
