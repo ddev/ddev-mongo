@@ -1,4 +1,4 @@
-[![tests](https://github.com/drud/ddev-mongo/actions/workflows/tests.yml/badge.svg)](https://github.com/drud/ddev-mongo/actions/workflows/tests.yml) ![project is maintained](https://img.shields.io/maintenance/yes/2024.svg)
+[![tests](https://github.com/ddev/ddev-mongo/actions/workflows/tests.yml/badge.svg)](https://github.com/ddev/ddev-mongo/actions/workflows/tests.yml) ![project is maintained](https://img.shields.io/maintenance/yes/2024.svg)
 
 ## What is ddev-mongo?
 
@@ -28,8 +28,6 @@ Mongo Express will now be accessible from `http://<project>.ddev.site:9091`
 
 **Contributed and maintained by [@rfay](https://github.com/rfay), but looking for co-maintainers who use mongo regularly and know something about it.**
 
-**Based on the original [ddev-contrib recipe](https://github.com/drud/ddev-contrib/tree/master/docker-compose-services/mongodb)**
+**Based on the original [ddev-contrib recipe](https://github.com/ddev/ddev-contrib/tree/master/docker-compose-services/mongodb)**
 
 **Originally ontributed by [@wtfred](https://github.com/wtfred)**
-
-
