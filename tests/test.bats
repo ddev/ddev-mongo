@@ -29,6 +29,16 @@ teardown() {
   out=$(curl -s ${PROJNAME}.ddev.site:9091/db/admin/expArr/system.users | jq -r ".[0].user")
   [ "${out}" = "db" ]
   (ddev exec php -i | grep mongodb.debug) || (echo "# php mongodb extension not found" >&3 || exit 1)
+  # Test mongosh
+  result=$(ddev mongosh "mongodb://db:db@mongo:27017/test?authSource=admin" --quiet --eval '"printjson(db.getUsers())"' --json | grep "ok" | sed 's/: 1/ /g' | sed 's/ //g' | tr ' \n' '#')
+  if [[ $result == "ok#" ]]
+    then
+      echo "# Mongosh OK" >&3
+    else
+      echo "# Mongosh KO"
+      echo "$result"
+      exit 1
+  fi
 }
 
 @test "install from release" {
@@ -41,4 +51,14 @@ teardown() {
   out=$(curl -s ${PROJNAME}.ddev.site:9091/db/admin/expArr/system.users | jq -r ".[0].user")
   [ "${out}" = "db" ]
   (ddev exec php -i | grep mongodb.debug) || (echo "# php mongodb extension not found" >&3 || exit 1)
+  # Test mongosh
+  result=$(ddev mongosh "mongodb://db:db@mongo:27017/test?authSource=admin" --quiet --eval '"printjson(db.getUsers())"' --json | grep "ok" | sed 's/: 1/ /g' | sed 's/ //g' | tr ' \n' '#')
+  if [[ $result == "ok#" ]]
+    then
+      echo "# Mongosh OK" >&3
+    else
+      echo "# Mongosh KO"
+      echo "$result"
+      exit 1
+  fi
 }
