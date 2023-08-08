@@ -20,14 +20,23 @@ It's based on [MongoDb from Docker Hub](https://hub.docker.com/_/mongo?tab=descr
 
 Mongo Express will now be accessible from `http://<project>.ddev.site:9091`
 
+
+## Features
+
+### `ddev mongosh` command
+
+This command will run the `mongosh` (mongoDB Shell) command in the `mongo` container. Please [read the documentation](https://www.mongodb.com/docs/mongodb-shell/) for more information.
+
+
 ## Caveats:
 
 * The php extension (phpX.X-mongodb) is set up in `.ddev/config.mongo.yaml` using `webimage_extra_packages`. If you have an earlier `webimage_extra_packages` in your config.yaml, this will override it. You may want to edit your config.yaml to do what you want and remove the config.mongo.yaml.
 * You can't define custom MongoDB configuration with this current setup.
 * You can't use `ddev import-db` to import to mongo.
 
-**Contributed and maintained by [@rfay](https://github.com/rfay), but looking for co-maintainers who use mongo regularly and know something about it.**
 
 **Based on the original [ddev-contrib recipe](https://github.com/ddev/ddev-contrib/tree/master/docker-compose-services/mongodb)**
 
-**Originally ontributed by [@wtfred](https://github.com/wtfred)**
+**Originally contributed by [@wtfred](https://github.com/wtfred)**
+
+**Maintained by [@julienloizelet](https://github.com/julienloizelet)**

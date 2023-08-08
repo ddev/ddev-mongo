@@ -1,0 +1,99 @@
+# Changelog
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/)
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+
+## SemVer public API
+
+The [public API](https://semver.org/spec/v2.0.0.html#spec-item-1) of this project is defined by the `install.yaml` file and `project_files` listed in the `install.yaml` file.
+
+---
+
+
+## [v1.0.0](https://github.com/ddev/ddev-mongo/releases/tag/v1.0.0) - 2023-08-08
+[_Compare with previous release_](https://github.com/ddev/ddev-mongo/compare/v0.1.4...v1.0.0)
+
+### Added
+
+- Add `ddev mongosh` command
+
+---
+
+
+## [v0.1.4](https://github.com/ddev/ddev-mongo/releases/tag/v0.1.4) - 2023-02-04
+[_Compare with previous release_](https://github.com/ddev/ddev-mongo/compare/v0.1.3...v0.1.4)
+
+### Changed
+
+- Move to ddev domain
+
+---
+
+## [v0.1.3](https://github.com/ddev/ddev-mongo/releases/tag/v0.1.3) - 2022-12-10
+[_Compare with previous release_](https://github.com/ddev/ddev-mongo/compare/v0.1.2...v0.1.3)
+
+### Fixed
+
+- Add ddev-description in `install.yaml`
+
+---
+
+## [v0.1.2](https://github.com/ddev/ddev-mongo/releases/tag/v0.1.2) - 2022-06-22
+[_Compare with previous release_](https://github.com/ddev/ddev-mongo/compare/v0.1.1...v0.1.2)
+
+### Fixed
+
+- Make test failures more readable
+
+---
+
+
+## [v0.1.1](https://github.com/ddev/ddev-mongo/releases/tag/v0.1.1) - 2022-06-22
+[_Compare with previous release_](https://github.com/ddev/ddev-mongo/compare/v0.1.0...v0.1.1)
+
+### Fixed
+
+- Add missing ddev-generated comment
+
+---
+
+
+## [v0.1.0](https://github.com/ddev/ddev-mongo/releases/tag/v0.1.0) - 2022-04-05
+[_Compare with previous release_](https://github.com/ddev/ddev-mongo/compare/v0.0.3...v0.1.0)
+
+### Changed
+
+- Increase healthcheck timeout to 60s
+
+---
+
+
+## [v0.0.3](https://github.com/ddev/ddev-mongo/releases/tag/v0.0.3) - 2022-03-30
+[_Compare with previous release_](https://github.com/ddev/ddev-mongo/compare/v0.0.2...v0.0.3)
+
+### Changed
+
+- Make mongo-express dependent on mongo
+- Change host-side port to 9091 for fewer conflicts
+
+### Fixed
+
+- Fix healthcheck
+
+---
+
+## [v0.0.2](https://github.com/ddev/ddev-mongo/releases/tag/v0.0.2) - 2022-03-29
+[_Compare with previous release_](https://github.com/ddev/ddev-mongo/compare/v0.0.1...v0.0.2)
+
+### Added
+
+- Add healthcheck
+
+---
+
+## [0.0.1](https://github.com/ddev/ddev-mongo/releases/tag/v0.0.1) - 2022-03-29
+
+### Added
+- Initial release
