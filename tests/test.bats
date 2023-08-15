@@ -24,7 +24,7 @@ teardown() {
   cd ${TESTDIR}
   echo "# ddev get ${DIR} with project ${PROJNAME} in ${TESTDIR} ($(pwd))" >&3
   ddev get ${DIR} >/dev/null
-  ddev restart >/dev/null 2>&1
+  ddev restart >/dev/null
   curl -sI ${PROJNAME}.ddev.site:9091/db/admin/expArr/system.users | grep "HTTP/1.1 200 OK"
   out=$(curl -s ${PROJNAME}.ddev.site:9091/db/admin/expArr/system.users | jq -r ".[0].user")
   [ "${out}" = "db" ]
