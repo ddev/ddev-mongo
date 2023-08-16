@@ -46,6 +46,7 @@ services:
       HTTP_EXPOSE: "9091:8081"
     depends_on:
       - mongo
+    entrypoint: [sh, -c, "sleep 5s && tini -- /docker-entrypoint.sh mongo-express"]
 
 volumes:
   mongo:
