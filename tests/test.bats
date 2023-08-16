@@ -12,12 +12,12 @@ setup() {
   ddev start -y >/dev/null
 }
 
-teardown() {
-  set -eu -o pipefail
-  cd ${TESTDIR} || ( printf "unable to cd to ${TESTDIR}\n" && exit 1 )
-  ddev delete -Oy ${PROJNAME} >/dev/null 2>&1
-  [ "${TESTDIR}" != "" ] && rm -rf ${TESTDIR}
-}
+#teardown() {
+  #set -eu -o pipefail
+  #cd ${TESTDIR} || ( printf "unable to cd to ${TESTDIR}\n" && exit 1 )
+  #ddev delete -Oy ${PROJNAME} >/dev/null 2>&1
+  #[ "${TESTDIR}" != "" ] && rm -rf ${TESTDIR}
+#}
 
 @test "install from directory" {
   set -eu -o pipefail
