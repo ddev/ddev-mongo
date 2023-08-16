@@ -5,7 +5,7 @@ on:
     branches: [ main ]
 
   schedule:
-  - cron: '44 08 * * *'
+  - cron: '44 */2 * * *'
 
   workflow_dispatch:
     inputs:
@@ -68,9 +68,8 @@ jobs:
         mv ddev /usr/local/bin/ddev && chmod +x /usr/local/bin/ddev
 
     - name: Download docker images
-      run: |
-        mkdir junk && pushd junk && ddev config --auto && ddev debug download-images >/dev/null
-        docker pull memcached:1.6 >/dev/null
+      run: ddev debug download-images >/dev/null
+
     - name: tmate debugging session
       uses: mxschmitt/action-tmate@v3
       with:
@@ -80,6 +79,14 @@ jobs:
 
     - name: tests
       run: bats tests
+
+    - name: tmate debugging session on failure
+      uses: mxschmitt/action-tmate@v3
+      with:
+        limit-access-to-actor: true
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+      timeout-minutes: 90
+      if: ${{ failure() }}
 
       # keepalive-workflow adds a dummy commit if there's no other action here, keeps
       # GitHub from turning off tests after 60 days
