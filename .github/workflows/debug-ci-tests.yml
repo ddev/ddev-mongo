@@ -1,4 +1,4 @@
-name: tests
+name: tests debug
 on:
   pull_request:
   push:
@@ -25,7 +25,7 @@ env:
   DDEV_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
-  tests:
+  tests-debug:
     defaults:
       run:
         shell: bash
