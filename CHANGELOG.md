@@ -11,6 +11,15 @@ The [public API](https://semver.org/spec/v2.0.0.html#spec-item-1) of this projec
 
 ---
 
+## [v1.0.1](https://github.com/ddev/ddev-mongo/releases/tag/v1.0.1) - 2023-08-20
+[_Compare with previous release_](https://github.com/ddev/ddev-mongo/compare/v1.0.0...v1.0.1)
+
+### Fixed
+
+- Wait 5 seconds before starting `mongo-express` to avoid random failures ([@see #14](https://github.com/ddev/ddev-mongo/issues/14))
+
+---
+
 
 ## [v1.0.0](https://github.com/ddev/ddev-mongo/releases/tag/v1.0.0) - 2023-08-08
 [_Compare with previous release_](https://github.com/ddev/ddev-mongo/compare/v0.1.4...v1.0.0)
