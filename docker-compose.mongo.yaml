@@ -14,6 +14,11 @@ services:
       target: "/data/db"
       volume:
         nocopy: true
+    - type: "volume"
+      source: mongo-config
+      target: "/data/configdb"
+      volume:
+        nocopy: true
     - ".:/mnt/ddev_config"
     restart: "no"
     expose:
@@ -50,3 +55,4 @@ services:
 
 volumes:
   mongo:
+  mongo-config:
