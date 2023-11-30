@@ -11,6 +11,16 @@ The [public API](https://semver.org/spec/v2.0.0.html#spec-item-1) of this projec
 
 ---
 
+## [v1.1.0](https://github.com/ddev/ddev-mongo/releases/tag/v1.1.0) - 2023-11-30
+[_Compare with previous release_](https://github.com/ddev/ddev-mongo/compare/v1.0.1...v1.1.0)
+
+### Added
+
+- Add explicit `mongo-config` volume for `/data/configdb` ([PR #17](https://github.com/ddev/ddev-mongo/pull/17))
+
+---
+
+
 ## [v1.0.1](https://github.com/ddev/ddev-mongo/releases/tag/v1.0.1) - 2023-08-20
 [_Compare with previous release_](https://github.com/ddev/ddev-mongo/compare/v1.0.0...v1.0.1)
 
