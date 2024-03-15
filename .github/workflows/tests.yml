@@ -18,7 +18,7 @@ on:
         default: false
 
 permissions:
-  contents: write
+  actions: write
 
 jobs:
   tests:
@@ -31,7 +31,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: ddev/github-action-add-on-test@v1
+      - uses: ddev/github-action-add-on-test@v2
         with:
           ddev_version: ${{ matrix.ddev_version }}
           token: ${{ secrets.GITHUB_TOKEN }}
