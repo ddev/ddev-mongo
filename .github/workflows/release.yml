@@ -7,6 +7,7 @@ on:
     inputs:
       tag_name:
         type: string
+        description: Tag name
         required: true
       draft:
         type: boolean
@@ -39,7 +40,7 @@ jobs:
           echo "VERSION_NUMBER=$(echo ${{ github.event.inputs.tag_name }})" >> $GITHUB_ENV
 
       - name: Clone sources
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Check version ${{ env.VERSION_NUMBER }} consistency in files
         # Check CHANGELOG.md
@@ -90,7 +91,7 @@ jobs:
           echo "$VERSION_RELEASE_NOTES" >> CHANGELOG.txt
 
       - name: Create release ${{ env.VERSION_NUMBER }}
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
           body_path: CHANGELOG.txt
           name: ${{ env.VERSION_NUMBER }}

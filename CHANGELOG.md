@@ -11,6 +11,20 @@ The [public API](https://semver.org/spec/v2.0.0.html#spec-item-1) of this projec
 
 ---
 
+## [v1.2.0](https://github.com/ddev/ddev-mongo/releases/tag/v1.2.0) - 2024-03-28
+[_Compare with previous release_](https://github.com/ddev/ddev-mongo/compare/v1.1.0...v1.2.0)
+
+### Changed
+
+- Update `mongo-express` to `1.0`
+- Update `mongo-express` configuration variables
+
+### Added
+
+- Add `HTTPS_EXPOSE` for `mongo-express` container
+
+---
+
 ## [v1.1.0](https://github.com/ddev/ddev-mongo/releases/tag/v1.1.0) - 2023-11-30
 [_Compare with previous release_](https://github.com/ddev/ddev-mongo/compare/v1.0.1...v1.1.0)
 
