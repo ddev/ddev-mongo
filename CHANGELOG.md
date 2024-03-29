@@ -11,6 +11,16 @@ The [public API](https://semver.org/spec/v2.0.0.html#spec-item-1) of this projec
 
 ---
 
+## [v2.0.0](https://github.com/ddev/ddev-mongo/releases/tag/v2.0.0) - 2024-03-29
+[_Compare with previous release_](https://github.com/ddev/ddev-mongo/compare/v1.2.0...v2.0.0)
+
+### Changed
+
+- **Breaking change**: Use `ExecRaw: true` annotation for the `mongosh` command (pass command arguments directly to the container as-is)
+
+
+---
+
 ## [v1.2.0](https://github.com/ddev/ddev-mongo/releases/tag/v1.2.0) - 2024-03-28
 [_Compare with previous release_](https://github.com/ddev/ddev-mongo/compare/v1.1.0...v1.2.0)
 
