@@ -7,5 +7,6 @@
 #
 ## Description: Run mongosh command
 ## Usage: mongosh <command>
+## ExecRaw: true
 ## Example: "ddev mongosh "mongodb://mongo:27017"
 mongosh "$@"
