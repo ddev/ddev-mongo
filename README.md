@@ -2,8 +2,7 @@
 
 ## What is ddev-mongo?
 
-This repository is an add-on that provides Mongo and Mongo Express for [DDEV](https://ddev.readthedocs.
-io/en/stable/).
+This repository is an add-on that provides Mongo and Mongo Express for [DDEV](https://ddev.readthedocs.io/en/stable/).
 
 It's based on [MongoDb from Docker Hub](https://hub.docker.com/_/mongo?tab=description#-via-docker-stack-deploy-or-docker-compose), [DDEV custom compose files](https://ddev.readthedocs.io/en/stable/users/extend/custom-compose-files/) and [API Platform tutorial](https://api-platform.com/docs/core/mongodb/#enabling-mongodb-support).
 
