@@ -2,7 +2,8 @@
 
 ## What is ddev-mongo?
 
-This repository provides Mongo and Mongo Express add-on to [DDEV](https://ddev.readthedocs.io/en/stable/).
+This repository is an add-on that provides Mongo and Mongo Express for [DDEV](https://ddev.readthedocs.
+io/en/stable/).
 
 It's based on [MongoDb from Docker Hub](https://hub.docker.com/_/mongo?tab=description#-via-docker-stack-deploy-or-docker-compose), [DDEV custom compose files](https://ddev.readthedocs.io/en/stable/users/extend/custom-compose-files/) and [API Platform tutorial](https://api-platform.com/docs/core/mongodb/#enabling-mongodb-support).
 
@@ -51,7 +52,7 @@ This command opens your browser to the Mongo Express page.
 
 ## Caveats:
 
-- The php extension (phpX.X-mongodb) is set up in `.ddev/config.mongo.yaml` using `webimage_extra_packages`. If you have an earlier `webimage_extra_packages` in your config.yaml, this will override it. You may want to edit your config.yaml to do what you want and remove the config.mongo.yaml.
+- The php extension (phpX.X-mongodb) is set up in `.ddev/config.mongo.yaml` using `webimage_extra_packages`. You may want to edit your config.yaml to do what you want and remove the config.mongo.yaml.
 - You can't define custom MongoDB configuration with this current setup.
 - You can't use `ddev import-db` to import to mongo.
 
