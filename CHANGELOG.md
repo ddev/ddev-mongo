@@ -7,7 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## SemVer public API
 
-The [public API](https://semver.org/spec/v2.0.0.html#spec-item-1) of this project is defined by the `install.yaml` file and `project_files` listed in the `install.yaml` file.
+The [public API](https://semver.org/spec/v2.0.0.html#spec-item-1) of this project is determined by the `install.
+yaml` file, along with all files specified under `project_files` within `install.yaml`.
+
+---
+
+## [v2.1.0](https://github.com/ddev/ddev-mongo/releases/tag/v2.1.0) - 2024-10-31
+[_Compare with previous release_](https://github.com/ddev/ddev-mongo/compare/v2.0.0...v2.1.0)
+
+### Added
+
+- Add `mongo-express` command to open the Mongo Express UI in the browser
+- Add `docker-compose.mongo_norouter.yaml` to handle the omitted `ddev-router` container case
+
 
 ---
 
