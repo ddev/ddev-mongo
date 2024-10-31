@@ -2,14 +2,21 @@ name: tests
 on:
   pull_request:
   push:
-    branches: [ main ]
+    branches: [main]
     paths-ignore:
-      - '**.md'
+      - "**.md"
 
   schedule:
-  - cron: '44 08 * * *'
+    - cron: "44 08 * * *"
 
   workflow_dispatch:
+    inputs:
+      debug_enabled:
+        type: boolean
+        description: Debug with tmate
+        required: false
+        default: false
+  workflow_call:
     inputs:
       debug_enabled:
         type: boolean
@@ -22,7 +29,6 @@ permissions:
 
 jobs:
   tests:
-
     strategy:
       matrix:
         ddev_version: [stable, HEAD]
