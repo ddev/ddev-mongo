@@ -7,7 +7,7 @@
 
 ## Overview
 
-[MongoDB](https://www.mongodb.com/) is a source-available, cross-platform, document-oriented database program. Classified as a NoSQL database product, MongoDB uses JSON-like documents with optional schemas
+[MongoDB](https://www.mongodb.com/) is a source-available, cross-platform, document-oriented database program. Classified as a NoSQL database product, MongoDB uses JSON-like documents with optional schemas.
 
 This add-on integrates MongoDB and Mongo Express into your [DDEV](https://ddev.com/) project.
 
@@ -29,7 +29,7 @@ After installation, make sure to commit the `.ddev` directory to version control
 
 2. In your application `.env` or other client, set the connection string:
 
-   ```
+   ```dotenv
    MONGODB_URL=mongodb://db:db@mongo:27017
    ```
 
@@ -65,6 +65,8 @@ services:
     environment:
       - ME_CONFIG_MONGODB_URL=mongodb://mongo:27017
 ```
+
+(Don't forget to update your application's `.env` file.)
 
 To change the Docker image:
 
