@@ -53,6 +53,9 @@ health_checks() {
   assert_output --partial "mongo-express"
   assert_output --partial "FULLURL https://${PROJNAME}.ddev.site:9092"
 
+  # Wait for mongo-express and Traefik to become ready in tests
+  sleep 3
+
   run curl -sfI https://${PROJNAME}.ddev.site:9092/db/admin/expArr/system.users
   assert_success
   assert_output --partial "HTTP/2 200"
