@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 ## #ddev-generated: If you want to edit and own this file, remove this line.
 ## Description: Launch a browser with Mongo Express
@@ -11,6 +11,9 @@ if [ "${DDEV_PRIMARY_URL%://*}" != "http" ] && [ -z "${GITPOD_WORKSPACE_ID:-}" ]
     PROTOCOL="HTTPS"
 fi
 
+# Start mongo-express if it's not started
+ddev exec -s mongo-express true >/dev/null 2>&1 || ddev start --profiles mongo-express
+
 # Fetch the appropriate port within the mongo-express container
 DDEV_MONGO_EXPRESS_PORT=$(ddev exec -s mongo-express sh -c "printenv | grep -w ${PROTOCOL}_EXPOSE | cut -d '=' -f 2 | cut -d ':' -f 1")
 
@@ -20,4 +23,3 @@ if [ -z "$DDEV_MONGO_EXPRESS_PORT" ]; then
 fi
 
 ddev launch :"$DDEV_MONGO_EXPRESS_PORT"
-

@@ -4,15 +4,8 @@ pre_install_actions:
   - |
     #ddev-description:Create config.mongo.yaml with webimage_extra_packages in it
     printf '#ddev-generated\nwebimage_extra_packages: ["php${DDEV_PHP_VERSION}-mongodb"]\n' >.ddev/config.mongo.yaml
-  # Ensure we're on DDEV 1.23+. It's required for the `mongo-express` command (launch by port).
-  # ddev_version_constraint (see below) is only available in DDEV 1.23.4+, so we keep this check for now.
-  # Should be removed when DDEV 1.24 is released.
-  - |
-    #ddev-nodisplay
-    #ddev-description:Checking DDEV version
-    (ddev debug capabilities | grep corepack >/dev/null) || (echo "Please upgrade DDEV to v1.23+ to enable launching." && false)
 
-ddev_version_constraint: ">= v1.23.0"
+ddev_version_constraint: ">= v1.24.4"
 
 post_install_actions:
   - |
@@ -24,7 +17,6 @@ post_install_actions:
   - |
     echo "You can now use 'ddev mongo-express' to launch Mongo Express UI"
 
-# list of files and directories listed that are copied into project .ddev directory
 project_files:
   - commands/mongo/mongosh
   - commands/host/mongo-express
