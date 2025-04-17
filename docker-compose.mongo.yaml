@@ -49,7 +49,6 @@ services:
       - HTTPS_EXPOSE=9092:8081
     depends_on:
       - mongo
-    entrypoint: [sh, -c, "tini -- /docker-entrypoint.sh mongo-express"]
     profiles:
       - mongo-express
 
