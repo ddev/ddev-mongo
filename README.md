@@ -33,7 +33,7 @@ After installation, make sure to commit the `.ddev` directory to version control
    MONGODB_URL=mongodb://db:db@mongo:27017
    ```
 
-Mongo Express will now be accessible by running `ddev mongo-express` command.
+Mongo Express can now be started on demand using the `ddev mongo-express` command. (This optional feature is available starting from DDEV v1.24.4+.)
 
 ## Usage
 
