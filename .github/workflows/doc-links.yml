@@ -22,7 +22,7 @@ jobs:
         with:
           path: sources
 
-      - name: Lauch localhost server
+      - name: Launch localhost server
         run: |
           sudo npm install --global http-server
           http-server ./sources &
@@ -36,4 +36,4 @@ jobs:
         run: |
           gem install awesome_bot
           cd sources
-          awesome_bot README.md --skip-save-results --allow-dupe --base-url http://localhost:8080/ --white-list ddev.site
+          awesome_bot README.md --skip-save-results --allow-dupe --base-url http://localhost:8080/ --white-list ddev.site,github.com/ddev/ddev-mongo/releases/latest

@@ -47,8 +47,10 @@ health_checks() {
   assert_success
   assert_output --partial '"ok":1'
 
+  # Start mongo-express profile
   DDEV_DEBUG=true run ddev mongo-express
   assert_success
+  assert_output --partial "mongo-express"
   assert_output --partial "FULLURL https://${PROJNAME}.ddev.site:9092"
 
   run curl -sfI https://${PROJNAME}.ddev.site:9092/db/admin/expArr/system.users
