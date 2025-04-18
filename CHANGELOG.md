@@ -12,6 +12,16 @@ yaml` file, along with all files specified under `project_files` within `install
 
 ---
 
+## [v2.2.0](https://github.com/ddev/ddev-mongo/releases/tag/v2.2.0) - 2025-04-18
+[_Compare with previous release_](https://github.com/ddev/ddev-mongo/compare/v2.1.0...v2.2.0)
+
+### Changed
+
+- Mongo Express can be started on demand using the `ddev mongo-express` command.
+- Minimum required DDEV version is 1.24.4.
+
+---
+
 ## [v2.1.0](https://github.com/ddev/ddev-mongo/releases/tag/v2.1.0) - 2024-10-31
 [_Compare with previous release_](https://github.com/ddev/ddev-mongo/compare/v2.0.0...v2.1.0)
 
