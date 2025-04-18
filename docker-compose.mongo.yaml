@@ -48,7 +48,8 @@ services:
       - HTTP_EXPOSE=9091:8081
       - HTTPS_EXPOSE=9092:8081
     depends_on:
-      - mongo
+      mongo:
+        condition: service_healthy
     profiles:
       - mongo-express
 
