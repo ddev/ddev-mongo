@@ -12,6 +12,15 @@ yaml` file, along with all files specified under `project_files` within `install
 
 ---
 
+## [v2.2.1](https://github.com/ddev/ddev-mongo/releases/tag/v2.2.1) - 2025-09-15
+[_Compare with previous release_](https://github.com/ddev/ddev-mongo/compare/v2.2.0...v2.2.1)
+
+### Changed
+
+- Add `config.mongo.yaml` to the add-on files.
+
+---
+
 ## [v2.2.0](https://github.com/ddev/ddev-mongo/releases/tag/v2.2.0) - 2025-04-18
 [_Compare with previous release_](https://github.com/ddev/ddev-mongo/compare/v2.1.0...v2.2.0)
 
