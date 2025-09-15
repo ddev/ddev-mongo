@@ -11,7 +11,7 @@
 
 This add-on integrates MongoDB and Mongo Express into your [DDEV](https://ddev.com/) project.
 
-It's based on [MongoDB from Docker Hub](https://hub.docker.com/_/mongo?tab=description), [DDEV custom compose files](https://ddev.readthedocs.io/en/stable/users/extend/custom-compose-files/) and [API Platform tutorial](https://api-platform.com/docs/core/mongodb/#enabling-mongodb-support).
+It's based on [MongoDB from Docker Hub](https://hub.docker.com/_/mongo?tab=description), [DDEV custom compose files](https://docs.ddev.com/en/stable/users/extend/custom-compose-files/) and [API Platform tutorial](https://api-platform.com/docs/core/mongodb/#enabling-mongodb-support).
 
 ## Installation
 
