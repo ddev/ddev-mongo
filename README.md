@@ -11,7 +11,7 @@
 
 This add-on integrates MongoDB and Mongo Express into your [DDEV](https://ddev.com/) project.
 
-It's based on [MongoDB from Docker Hub](https://hub.docker.com/_/mongo?tab=description), [DDEV custom compose files](https://ddev.readthedocs.io/en/stable/users/extend/custom-compose-files/) and [API Platform tutorial](https://api-platform.com/docs/core/mongodb/#enabling-mongodb-support).
+It's based on [MongoDB from Docker Hub](https://hub.docker.com/_/mongo?tab=description), [DDEV custom compose files](https://docs.ddev.com/en/stable/users/extend/custom-compose-files/) and [API Platform tutorial](https://api-platform.com/docs/core/mongodb/#enabling-mongodb-support).
 
 ## Installation
 
@@ -25,7 +25,10 @@ After installation, make sure to commit the `.ddev` directory to version control
 ## Configuration
 
 1. Your project will likely require the [Doctrine MongoDB ODM bundle](https://github.com/doctrine/DoctrineMongoDBBundle)
-   `ddev composer require doctrine/mongodb-odm-bundle:^4.0.0@beta doctrine/mongodb-odm:^2.0.0@beta`
+
+   ```bash
+   ddev composer require doctrine/mongodb-odm-bundle doctrine/mongodb-odm
+   ```
 
 2. In your application `.env` or other client, set the connection string:
 
