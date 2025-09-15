@@ -50,7 +50,6 @@ Mongo Express can now be started on demand using the `ddev mongo-express` comman
 
 ## Caveats:
 
-- The php extension (`phpX.X-mongodb`) is set up in `.ddev/config.mongo.yaml` using `webimage_extra_packages`. You may want to edit your `.ddev/config.yaml` to do what you want and remove the `.ddev/config.mongo.yaml`.
 - You can't define custom MongoDB configuration with this current setup.
 - You can't use `ddev import-db` to import to mongo.
 
