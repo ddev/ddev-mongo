@@ -12,6 +12,15 @@ yaml` file, along with all files specified under `project_files` within `install
 
 ---
 
+## [v2.3.0](https://github.com/ddev/ddev-mongo/releases/tag/v2.3.0) - 2026-01-28
+[_Compare with previous release_](https://github.com/ddev/ddev-mongo/compare/v2.2.1...v2.3.0)
+
+### Changed
+
+- Add mongo cli tools, use `mongo:latest`
+
+---
+
 ## [v2.2.1](https://github.com/ddev/ddev-mongo/releases/tag/v2.2.1) - 2025-09-15
 [_Compare with previous release_](https://github.com/ddev/ddev-mongo/compare/v2.2.0...v2.2.1)
 
