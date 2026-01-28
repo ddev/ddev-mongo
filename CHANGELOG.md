@@ -17,7 +17,8 @@ yaml` file, along with all files specified under `project_files` within `install
 
 ### Changed
 
-- Add mongo cli tools, use `mongo:latest`
+- Add mongo cli tools to the `ddev-webserver`, use `mongo:latest`
+- Minimum required DDEV version is 1.24.10.
 
 ---
 
