@@ -27,7 +27,7 @@ After installation, make sure to commit the `.ddev` directory to version control
 By default, the database with the name `db` is created. You can connect to it using this connection string:
 
 ```text
-mongodb://db:db@mongo/db?authSource=admin
+mongodb://db:db@mongo:27017/db?authSource=admin
 ```
 
 You can change the default database name, username, and password using env variables:
@@ -39,23 +39,30 @@ ddev dotenv set .ddev/.env.mongo \
     --mongo-initdb-database=db
 ```
 
-If default authentication is not required, see the [Advanced Customization](#advanced-customization) section below.
+If you want to disable authentication:
+
+```bash
+ddev dotenv set .ddev/.env.mongo \
+    --mongo-initdb-root-username="" \
+    --mongo-initdb-root-password="" \
+    --me-config-mongodb-url=mongodb://mongo:27017
+```
 
 ## Configuration
 
 1. Your project will likely require the [Doctrine MongoDB ODM bundle](https://github.com/doctrine/DoctrineMongoDBBundle)
 
-   ```bash
-   ddev composer require doctrine/mongodb-odm-bundle doctrine/mongodb-odm
-   ```
+    ```bash
+    ddev composer require doctrine/mongodb-odm-bundle doctrine/mongodb-odm
+    ```
 
 2. In your application `.env` or other client, set the connection string:
 
-   ```dotenv
-   MONGODB_URL=mongodb://db:db@mongo:27017
-   ```
+    ```dotenv
+    MONGODB_URL=mongodb://db:db@mongo:27017
+    ```
 
-Mongo Express can now be started on demand using the `ddev mongo-express` command. (This optional feature is available starting from DDEV v1.24.4+.)
+Mongo Express can now be started on demand using the `ddev mongo-express` command.
 
 ## Usage
 
@@ -74,21 +81,6 @@ Mongo Express can now be started on demand using the `ddev mongo-express` comman
 
 ## Advanced Customization
 
-If you don't want to authenticate with the default admin user, create a new file `.ddev/docker-compose.mongo_extra.yaml`:
-
-```yaml
-services:
-  mongo:
-    environment:
-      - MONGO_INITDB_ROOT_USERNAME=
-      - MONGO_INITDB_ROOT_PASSWORD=
-  mongo-express:
-    environment:
-      - ME_CONFIG_MONGODB_URL=mongodb://mongo:27017
-```
-
-(Don't forget to update your application's `.env` file.)
-
 To change the Docker image:
 
 ```bash
@@ -101,10 +93,14 @@ Make sure to commit the `.ddev/.env.mongo` file to version control.
 
 All customization options (use with caution):
 
-| Variable | Flag | Default |
-| -------- | ---- | ------- |
-| `MONGO_DOCKER_IMAGE` | `--mongo-docker-image` | `mongo:latest` |
-| `MONGO_EXPRESS_DOCKER_IMAGE` | `--mongo-express-docker-image` | `mongo-express:1.0` |
+| Variable                     | Flag                           | Default                       |
+|------------------------------|--------------------------------|-------------------------------|
+| `MONGO_DOCKER_IMAGE`         | `--mongo-docker-image`         | `mongo:latest`                |
+| `MONGO_EXPRESS_DOCKER_IMAGE` | `--mongo-express-docker-image` | `mongo-express:1.0`           |
+| `MONGO_INITDB_ROOT_USERNAME` | `--mongo-initdb-root-username` | `db`                          |
+| `MONGO_INITDB_ROOT_PASSWORD` | `--mongo-initdb-root-password` | `db`                          |
+| `MONGO_INITDB_DATABASE`      | `--mongo-initdb-database`      | `db`                          |
+| `ME_CONFIG_MONGODB_URL`      | `--me-config-mongodb-url`      | `mongodb://db:db@mongo:27017` |
 
 ## Credits
 

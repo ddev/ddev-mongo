@@ -44,7 +44,7 @@ services:
     environment:
       - ME_CONFIG_MONGODB_ENABLE_ADMIN=true
       - ME_CONFIG_BASICAUTH=false
-      - ME_CONFIG_MONGODB_URL=mongodb://db:db@mongo:27017
+      - ME_CONFIG_MONGODB_URL=${ME_CONFIG_MONGODB_URL:-mongodb://db:db@mongo:27017}
       - VIRTUAL_HOST=$DDEV_HOSTNAME
       - HTTP_EXPOSE=9091:8081
       - HTTPS_EXPOSE=9092:8081
