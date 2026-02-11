@@ -12,12 +12,23 @@ yaml` file, along with all files specified under `project_files` within `install
 
 ---
 
+## [v2.3.2](https://github.com/ddev/ddev-mongo/releases/tag/v2.3.2) - 2026-02-11
+[_Compare with previous release_](https://github.com/ddev/ddev-mongo/compare/v2.3.1...v2.3.2)
+
+### Changed
+
+- Fix `mongodb-database-tools` installation on arm64 by using Ubuntu 24.04 repository
+
+---
+
 ## [v2.3.1](https://github.com/ddev/ddev-mongo/releases/tag/v2.3.1) - 2026-02-03
 [_Compare with previous release_](https://github.com/ddev/ddev-mongo/compare/v2.3.0...v2.3.1)
 
 ### Changed
 
 - Use `MONGO_INITDB_DATABASE=db` to create a default database.
+
+---
 
 ## [v2.3.0](https://github.com/ddev/ddev-mongo/releases/tag/v2.3.0) - 2026-01-28
 [_Compare with previous release_](https://github.com/ddev/ddev-mongo/compare/v2.2.1...v2.3.0)

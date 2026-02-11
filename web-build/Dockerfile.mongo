@@ -1,21 +1,22 @@
 #ddev-generated
 RUN <<EOF
 set -eu -o pipefail
-LATEST_FULL_VERSION=$(curl -s "https://s3.amazonaws.com/repo.mongodb.org?list-type=2&prefix=apt/debian/dists/bookworm/mongodb-org/&delimiter=/" | grep -oP '(?<=<Prefix>)[^<]+mongodb-org/\K[0-9]+\.[0-9]+' | sort -V | tail -1 || echo "8.2")
+LATEST_FULL_VERSION=$(curl -s "https://s3.amazonaws.com/repo.mongodb.org?list-type=2&prefix=apt/ubuntu/dists/noble/mongodb-org/&delimiter=/" | grep -oP '(?<=<Prefix>)[^<]+mongodb-org/\K[0-9]+\.[0-9]+' | sort -V | tail -1 || echo "8.2")
+
 # Extract major version for GPG key (e.g., "8.2" -> "8.0")
 MAJOR_VERSION=$(echo "$LATEST_FULL_VERSION" | cut -d. -f1)
 GPG_VERSION="${MAJOR_VERSION}.0"
-echo "Latest MongoDB version: $LATEST_FULL_VERSION, using GPG key for: $GPG_VERSION"
-# Add MongoDB GPG key using major version
-wget -qO - https://www.mongodb.org/static/pgp/server-${GPG_VERSION}.asc | gpg --dearmor -o /usr/share/keyrings/mongodb-server-${GPG_VERSION}.gpg
-# Add repository using the full version
 KEYRING_PATH="/usr/share/keyrings/mongodb-server-${GPG_VERSION}.gpg"
 
-cat > /etc/apt/sources.list.d/mongodb-archive.sources <<EOT
+# Add MongoDB GPG key using major version
+wget -qO - https://www.mongodb.org/static/pgp/server-${GPG_VERSION}.asc | gpg --dearmor -o "${KEYRING_PATH}"
+
+# Add repository using the full version
+cat > /etc/apt/sources.list.d/mongodb-server.sources <<EOT
 Types: deb
-URIs: http://repo.mongodb.org/apt/debian
-Suites: bookworm/mongodb-org/${LATEST_FULL_VERSION}
-Components: main
+URIs: http://repo.mongodb.org/apt/ubuntu
+Suites: noble/mongodb-org/${LATEST_FULL_VERSION}
+Components: multiverse
 Signed-By: ${KEYRING_PATH}
 EOT
 
