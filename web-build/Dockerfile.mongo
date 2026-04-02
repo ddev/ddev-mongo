@@ -1,7 +1,7 @@
 #ddev-generated
 RUN <<EOF
 set -eu -o pipefail
-LATEST_FULL_VERSION=$(curl -s "https://s3.amazonaws.com/repo.mongodb.org?list-type=2&prefix=apt/ubuntu/dists/noble/mongodb-org/&delimiter=/" | grep -oP '(?<=<Prefix>)[^<]+mongodb-org/\K[0-9]+\.[0-9]+' | sort -V | tail -1 || echo "8.2")
+LATEST_FULL_VERSION=8.2
 
 # Extract major version for GPG key (e.g., "8.2" -> "8.0")
 MAJOR_VERSION=$(echo "$LATEST_FULL_VERSION" | cut -d. -f1)
