@@ -12,6 +12,15 @@ yaml` file, along with all files specified under `project_files` within `install
 
 ---
 
+## [v2.3.3](https://github.com/ddev/ddev-mongo/releases/tag/v2.3.3) - 2026-04-02
+[_Compare with previous release_](https://github.com/ddev/ddev-mongo/compare/v2.3.2...v2.3.3)
+
+### Changed
+
+- Fix the `Unable to locate package mongodb-mongosh` error by falling back to the MongoDB 8.2 repository
+
+---
+
 ## [v2.3.2](https://github.com/ddev/ddev-mongo/releases/tag/v2.3.2) - 2026-02-11
 [_Compare with previous release_](https://github.com/ddev/ddev-mongo/compare/v2.3.1...v2.3.2)
 
