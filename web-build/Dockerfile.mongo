@@ -1,25 +1,31 @@
 #ddev-generated
 RUN <<EOF
 set -eu -o pipefail
-LATEST_FULL_VERSION=8.2
+LATEST_FULL_VERSION=$(curl -s "https://s3.amazonaws.com/repo.mongodb.org?list-type=2&prefix=apt/ubuntu/dists/noble/mongodb-org/&delimiter=/" | grep -oP '(?<=<Prefix>)[^<]+mongodb-org/\K[0-9]+\.[0-9]+' | sort -V | tail -1 || echo "8.2")
 
-# Extract major version for GPG key (e.g., "8.2" -> "8.0")
-MAJOR_VERSION=$(echo "$LATEST_FULL_VERSION" | cut -d. -f1)
-GPG_VERSION="${MAJOR_VERSION}.0"
-KEYRING_PATH="/usr/share/keyrings/mongodb-server-${GPG_VERSION}.gpg"
+INSTALLED=false
+for TRY_VERSION in "${LATEST_FULL_VERSION}" "8.2"; do
+  # Extract major version for GPG key (e.g., "8.2" -> "8.0")
+  GPG_VER="$(echo "${TRY_VERSION}" | cut -d. -f1).0"
+  KEYRING="/usr/share/keyrings/mongodb-server-${GPG_VER}.gpg"
 
-# Add MongoDB GPG key using major version
-wget -qO - https://www.mongodb.org/static/pgp/server-${GPG_VERSION}.asc | gpg --dearmor -o "${KEYRING_PATH}"
+  # Add MongoDB GPG key using major version
+  [ -f "${KEYRING}" ] || wget -qO - https://www.mongodb.org/static/pgp/server-${GPG_VER}.asc | gpg --dearmor -o "${KEYRING}"
 
-# Add repository using the full version
-cat > /etc/apt/sources.list.d/mongodb-server.sources <<EOT
+  # Add repository using the full version
+  cat > /etc/apt/sources.list.d/mongodb-server.sources <<EOT
 Types: deb
 URIs: http://repo.mongodb.org/apt/ubuntu
-Suites: noble/mongodb-org/${LATEST_FULL_VERSION}
+Suites: noble/mongodb-org/${TRY_VERSION}
 Components: multiverse
-Signed-By: ${KEYRING_PATH}
+Signed-By: ${KEYRING}
 EOT
 
-(apt-get update || true)
-apt-get install -y mongodb-mongosh mongodb-database-tools
+  (apt-get update || true)
+  if apt-get install -y mongodb-mongosh mongodb-database-tools; then
+    INSTALLED=true
+    break
+  fi
+done
+${INSTALLED}
 EOF
