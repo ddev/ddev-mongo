@@ -12,6 +12,15 @@ yaml` file, along with all files specified under `project_files` within `install
 
 ---
 
+## [v2.4.0](https://github.com/ddev/ddev-mongo/releases/tag/v2.4.0) - 2026-08-13
+[_Compare with previous release_](https://github.com/ddev/ddev-mongo/compare/v2.3.3...v2.4.0)
+
+### Changed
+
+- Add support for MongoDB 9.0, use MongoDB 8.3 as fallback
+
+---
+
 ## [v2.3.3](https://github.com/ddev/ddev-mongo/releases/tag/v2.3.3) - 2026-04-02
 [_Compare with previous release_](https://github.com/ddev/ddev-mongo/compare/v2.3.2...v2.3.3)
 
