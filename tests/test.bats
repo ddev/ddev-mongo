@@ -34,6 +34,12 @@ setup() {
   cd "${TESTDIR}"
   run ddev config --project-name="${PROJNAME}" --project-tld=ddev.site
   assert_success
+  # MongoDB 8 doesn't start on Linux kernel 6.19 through 7.0.13, used by the ubuntu-26.04-arm runner
+  # See https://github.com/ddev/ddev-mongo/issues/40
+  if [[ "$(uname -m)" == "aarch64" || "$(uname -m)" == "arm64" ]]; then
+    run ddev dotenv set .ddev/.env.mongo --mongo-docker-image=mongo:7.0
+    assert_success
+  fi
   run ddev start -y
   assert_success
 }
